@@ -1,0 +1,15 @@
+.header {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .header > a,
+  .header > a > img {
+    display: block;
+    width: inherit;
+    height: inherit;
+  }
+h1 {
+  color: white;
+}

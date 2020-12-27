@@ -1,0 +1,60 @@
+.containerTeams {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+    gap: 10px;
+  }
+  
+  .containerTeams > a:nth-child(4n),
+  .containerTeams > a:nth-child(4n+1){
+    grid-row: span 1;
+  }
+  
+  .containerTeams > a:nth-child(4n+2),
+  .containerTeams > a:nth-child(4n+3){
+    grid-row: span 2;
+  }
+  
+  .containerTeamInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px;
+    gap: 10px;
+    color: #fff;
+  }
+  
+  .containerTeamInfo > div:nth-child(2) {
+    align-self: center;
+  }
+  
+  @media only screen and (min-width: 440px){
+    .containerTeamInfo {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media only screen and (min-width: 768px){
+    .containerTeams {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .containerTeams > a:nth-child(4n),
+    .containerTeams > a:nth-child(4n+1),
+    .containerTeams > a:nth-child(4n+2),
+    .containerTeams > a:nth-child(4n+3){
+      grid-row: auto;
+    }
+  
+    .containerTeams > a:nth-child(2n):not(:nth-child(8n)),
+    .containerTeams > a:nth-child(5),
+    .containerTeams > a:nth-child(13) {
+      grid-row: span 2;
+    }
+  
+    .containerTeams > a:nth-child(17),
+    .containerTeams > a:nth-child(18),
+    .containerTeams > a:nth-child(19),
+    .containerTeams > a:nth-child(20) {
+      grid-row: span 1 !important;
+    }
+  }
