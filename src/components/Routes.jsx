@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import ContainerApp from './ContainerApp';
 import Home from '../pages/Home';
-import Details from '../pages/Details';
+import DetailTeam from '../pages/DetailTeam';
 import DetailsCup from '../pages/DetailCup';
 
 function Routes(){
@@ -12,7 +12,7 @@ function Routes(){
       <Switch>
         <ContainerApp>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/Detail/:id/info" component={Details}/>
+          <Route exact path="/Team/:id" component={DetailTeam}/>
           <Route exact path="/Cup/:id" component={DetailsCup}/>
         </ContainerApp>
       </Switch>

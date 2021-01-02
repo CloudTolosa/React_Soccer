@@ -1,10 +1,10 @@
 import React from 'react';
 
 import '../assets/styles/components/Team.css';
-import Cup from '../components/Cup';
-import CupList from '../components/CupList';
+import Team from '../components/Team';
+import TeamsList from '../components/TeamsList';
 
-class DetailsCup extends React.Component {
+class DetailsTeam extends React.Component {
     BASE_URL = 'https://www.scorebat.com/video-api/v1/';
 
     state = {
@@ -45,8 +45,8 @@ class DetailsCup extends React.Component {
 
         if (this.state.loading === true && this.state.data === undefined) {
             return (
-                <CupList NameClass="containerTeams">
-                </CupList>
+                <TeamsList NameClass="containerTeams">
+                </TeamsList>
             );
         }
 
@@ -57,12 +57,11 @@ class DetailsCup extends React.Component {
         let cups = this.state.result;
 
         return (
-            <CupList NameClass="containerTeams">
-                <Cup cups={cups} />
-               
-            </CupList>
+        <TeamsList NameClass="containerTeams">
+          <Team teams={cups} />
+        </TeamsList>
         );
     }
 }
 
-export default DetailsCup;
+export default DetailsTeam;

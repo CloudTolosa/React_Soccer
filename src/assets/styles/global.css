@@ -8,17 +8,10 @@
 }
 
 body {
-  background-color: #072501;
+  background-color: #033003;
   font-family: 'Lato', sans-serif;
 }
 
 button {
   cursor: pointer;
-}
-
-.containerBarra{
-  background: blue;
-}
-.containerVideo{
-  background: red;
 }

@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
+import Navbar from '../components/NavBar';
 import Team from '../components/Team';
 import TeamsList from '../components/TeamsList';
-import Menu from '../components/Menu';
-import MenuList  from '../components/MenuList'
 import Footer from '../components/Footer';
 
 class Home extends React.Component {
@@ -16,7 +15,8 @@ class Home extends React.Component {
     error: null,
     data: '',
     randomArray: [],
-    orderArray: [],
+    orderCup: [],
+    orderTeam: [],
   }
 
   componentDidMount() {
@@ -24,6 +24,7 @@ class Home extends React.Component {
 
   }
 
+  //Llamado al Api
   async fetchData() {
     this.setState({ loading: true, error: null });
     try {
@@ -33,11 +34,13 @@ class Home extends React.Component {
       console.log('Array:', data);
       this.random();
       this.orderCup();
+      this.orderTeam();
 
     } catch (error) {
       this.setState({ loading: false, error: error });
     }
   }
+
   // Valores random hasta 5 para videos
   random() {
     let data = this.state.data;
@@ -47,16 +50,30 @@ class Home extends React.Component {
       randomArray.push(randomA);
     }
     this.setState({ randomArray: randomArray });
-    console.log('MyRandom', this.state.randomArray);
   }
+
   //ordenar las ligas y eliminar las repetidas
   orderCup() {
-    let orderArray = this.state.data;
+    let orderCup = this.state.data;
 
     let hash = {};
-    orderArray = orderArray.filter(o => hash[o.competition.id] ? false : hash[o.competition.id] = true);
-    this.setState({ orderArray: orderArray });
-    console.log('MyList', orderArray);
+    orderCup = orderCup.filter(o => hash[o.competition.name] ? false : hash[o.competition.name] = true);
+    let orderA = orderCup.sort((a, b) => (a.competition.name > b.competition.name) ? 1 : -1)
+    this.setState({ orderCup: orderA });
+  }
+  
+  //ordenar los equipos y eliminar los repetidos
+  orderTeam() {
+    //let orderTeam1 = this.state.data;
+    let orderTeam2 = this.state.data;
+    let hash = {};
+
+    //orderTeam1 = orderTeam1.filter(o => hash[o.side1.name]  ? false : hash[o.side1.name] = true);
+    orderTeam2 = orderTeam2.filter(o => hash[o.side2.name]  ? false : hash[o.side2.name] = true);
+    let orderTeamA = orderTeam2.sort((a, b) => (a.side2.name > b.side2.name) ? 1 : -1)
+    this.setState({ orderTeam: orderTeamA});
+    //console.log('MyTeams1', orderTeam1);
+    //console.log('MyTeams2', orderTeam2);
   }
 
   scrollTop() {
@@ -89,14 +106,12 @@ class Home extends React.Component {
     return (
       
       <React.Fragment >
-        <MenuList NameClass="containerBarra">
-          <Menu teams={this.state.orderArray}/>
-        </MenuList>
-        <div className="containerVideo">
+       { /*Barra de navegacion*/ }
+        <Navbar cups={this.state.orderCup} teams={this.state.orderTeam}/>
+        { /*Contenido con Partidos Random*/ }
         <TeamsList NameClass="containerTeams">
           <Team teams={randomArray} />
         </TeamsList>
-        </div>
         
         {
           ReactDOM.createPortal(
