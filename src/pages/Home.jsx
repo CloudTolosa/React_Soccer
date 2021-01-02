@@ -5,6 +5,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import Team from '../components/Team';
 import TeamsList from '../components/TeamsList';
 import Menu from '../components/Menu';
+import MenuList  from '../components/MenuList'
 import Footer from '../components/Footer';
 
 class Home extends React.Component {
@@ -31,7 +32,7 @@ class Home extends React.Component {
       this.setState({ loading: false, data: data });
       console.log('Array:', data);
       this.random();
-      this.order();
+      this.orderCup();
 
     } catch (error) {
       this.setState({ loading: false, error: error });
@@ -49,7 +50,7 @@ class Home extends React.Component {
     console.log('MyRandom', this.state.randomArray);
   }
   //ordenar las ligas y eliminar las repetidas
-  order() {
+  orderCup() {
     let orderArray = this.state.data;
 
     let hash = {};
@@ -87,11 +88,16 @@ class Home extends React.Component {
     
     return (
       
-      <React.Fragment>
-        <Menu teams={this.state.orderArray}/>
+      <React.Fragment >
+        <MenuList NameClass="containerBarra">
+          <Menu teams={this.state.orderArray}/>
+        </MenuList>
+        <div className="containerVideo">
         <TeamsList NameClass="containerTeams">
           <Team teams={randomArray} />
         </TeamsList>
+        </div>
+        
         {
           ReactDOM.createPortal(
             <Footer />,

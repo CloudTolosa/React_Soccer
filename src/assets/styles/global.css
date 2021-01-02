@@ -15,3 +15,10 @@ body {
 button {
   cursor: pointer;
 }
+
+.containerBarra{
+  background: blue;
+}
+.containerVideo{
+  background: red;
+}
