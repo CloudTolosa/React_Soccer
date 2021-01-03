@@ -31,7 +31,6 @@ class Home extends React.Component {
       const response = await fetch(`${this.BASE_URL}`);
       const data = await response.json();
       this.setState({ loading: false, data: data });
-      console.log('Array:', data);
       this.random();
       this.orderCup();
       this.orderTeam();
@@ -64,16 +63,11 @@ class Home extends React.Component {
   
   //ordenar los equipos y eliminar los repetidos
   orderTeam() {
-    //let orderTeam1 = this.state.data;
     let orderTeam2 = this.state.data;
     let hash = {};
-
-    //orderTeam1 = orderTeam1.filter(o => hash[o.side1.name]  ? false : hash[o.side1.name] = true);
     orderTeam2 = orderTeam2.filter(o => hash[o.side2.name]  ? false : hash[o.side2.name] = true);
     let orderTeamA = orderTeam2.sort((a, b) => (a.side2.name > b.side2.name) ? 1 : -1)
     this.setState({ orderTeam: orderTeamA});
-    //console.log('MyTeams1', orderTeam1);
-    //console.log('MyTeams2', orderTeam2);
   }
 
   scrollTop() {

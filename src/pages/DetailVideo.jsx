@@ -37,7 +37,6 @@ class DetailVideo extends React.Component {
         // Filtro de data con el parametro de navegacion
         let result = data.filter(item => item.title === video)
         this.setState({ result: result });
-        console.log('LLEgo Video',result);
 
     }
 
