@@ -1,10 +1,8 @@
 import React from 'react';
 
 import '../assets/styles/components/Team.css';
-import Team from '../components/Team';
-import TeamsList from '../components/TeamsList';
 
-class DetailsCup extends React.Component {
+class DetailVideo extends React.Component {
     BASE_URL = 'https://www.scorebat.com/video-api/v1/';
 
     state = {
@@ -25,44 +23,43 @@ class DetailsCup extends React.Component {
             const response = await fetch(character_info);
             const data = await response.json();
             this.setState({ loading: false, data: data });
-            this.getCup();
+            this.getVideo();
         } catch (error) {
             this.setState({ loading: false, error: error });
         }
     }
 
-    getCup() {
+    getVideo() {
 
         let data = this.state.data;
-        let cup = this.props.match.params.id;
+        let video = this.props.match.params.id;
+        
         // Filtro de data con el parametro de navegacion
-        let result = data.filter(item => item.competition.id == cup)
+        let result = data.filter(item => item.title === video)
         this.setState({ result: result });
+        console.log('LLEgo Video',result);
 
     }
 
     render() {
 
-        if (this.state.loading === true && this.state.data === undefined) {
-            return (
-                <TeamsList NameClass="containerTeams">
-                </TeamsList>
-            );
-        }
-
-        if (this.state.error) {
-            return <h1 style={{ "color": "white" }}>Hubo un error</h1>
-        }
-
         let teams = this.state.result;
-
         return (
-            <TeamsList NameClass="containerTeams">
-                <Team teams={teams} />
-               
-            </TeamsList>
+            <React.Fragment>
+            {
+              teams.map((team, index) => {
+                 
+                return (
+                  
+                    <div key={index} dangerouslySetInnerHTML={{__html: team.embed}} />
+                )
+              })
+            }
+          </React.Fragment>
+
+            
         );
     }
 }
 
-export default DetailsCup;
+export default DetailVideo;

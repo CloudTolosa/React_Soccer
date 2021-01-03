@@ -5,6 +5,7 @@ import ContainerApp from './ContainerApp';
 import Home from '../pages/Home';
 import DetailTeam from '../pages/DetailTeam';
 import DetailsCup from '../pages/DetailCup';
+import DetailVideo from '../pages/DetailVideo';
 
 function Routes(){
   return (
@@ -14,6 +15,7 @@ function Routes(){
           <Route exact path="/" component={Home}/>
           <Route exact path="/Team/:id" component={DetailTeam}/>
           <Route exact path="/Cup/:id" component={DetailsCup}/>
+          <Route exact path="/Video/:id" component={DetailVideo}/>
         </ContainerApp>
       </Switch>
     </BrowserRouter>

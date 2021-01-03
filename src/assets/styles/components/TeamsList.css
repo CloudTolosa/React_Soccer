@@ -1,13 +1,13 @@
 .containerTeams {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 130px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 200px;
     gap: 5px;
   }
   
   .containerTeams > a:nth-child(4n),
-  .containerTeams > a:nth-child(4n+1){
-    grid-row: span 1;
+  .containerTeams > a:nth-child(4n){
+    grid-row: span 2;
   }
   
   .containerTeams > a:nth-child(4n+2),
@@ -35,7 +35,7 @@
   
   @media only screen and (min-width: 768px){
     .containerTeams {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   
     .containerTeams > a:nth-child(4n),
