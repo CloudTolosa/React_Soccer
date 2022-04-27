@@ -49,8 +49,7 @@ class DetailVideo extends React.Component {
               teams.map((team, index) => {
                  
                 return (
-                  
-                    <div key={index} dangerouslySetInnerHTML={{__html: team.embed}} />
+                    <img key={index} className="team-image" src={team.thumbnail} alt={`${team.title} `}/>
                 )
               })
             }

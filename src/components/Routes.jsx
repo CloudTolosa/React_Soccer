@@ -6,7 +6,7 @@ import Home from '../pages/Home';
 import DetailTeam from '../pages/DetailTeam';
 import DetailsCup from '../pages/DetailCup';
 import DetailVideo from '../pages/DetailVideo';
-import Statics from '../pages/Statics';
+import Estadisticas from '../pages/Statics';
 
 function Routes(){
   return (
@@ -17,7 +17,7 @@ function Routes(){
           <Route exact path="/Team/:id" component={DetailTeam}/>
           <Route exact path="/Cup/:id" component={DetailsCup}/>
           <Route exact path="/Video/:id" component={DetailVideo}/>
-          <Route exact path="/Estadisticas" component={Statics}/>
+          <Route exact path="/Estadisticas" component={Estadisticas}/>
         </ContainerApp>
       </Switch>
     </BrowserRouter>
