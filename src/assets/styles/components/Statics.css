@@ -1,0 +1,25 @@
+.wrapper {
+  column-count: 1;
+  display: block;
+  column-gap: 40px;
+  column-rule-style: solid;
+}
+
+.dona{
+  width: 90%;
+}
+.barra{
+  width: 100%;
+}
+
+h2{
+  color: white;
+}
+
+@media only screen and (min-width: 440px){
+  .wrapper {
+    column-count: 2;
+    column-gap: 10px;
+    column-rule-style: solid;
+  }
+}

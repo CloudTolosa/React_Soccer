@@ -8,7 +8,7 @@ import ContainerTeams from './ContainerTeams';
 function ContainerApp({children}){
   return (
     <div className="containerApp">
-      <Header/>
+      {/* <Header/> */}
 
       <ContainerTeams>
         {children}
