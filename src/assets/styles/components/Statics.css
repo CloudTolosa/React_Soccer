@@ -9,7 +9,7 @@
   width: 90%;
 }
 .barra{
-  width: 100%;
+  width: 90%;
 }
 
 h2{
@@ -21,5 +21,11 @@ h2{
     column-count: 2;
     column-gap: 10px;
     column-rule-style: solid;
+  }
+  .dona{
+    width: 80%;
+  }
+  .barra{
+    width: 80%;
   }
 }

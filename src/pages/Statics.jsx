@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, BarElement, ArcElement,CategoryScale,LinearScale,Title, Tooltip, Legend } from "chart.js";
 
 import { Doughnut, Bar } from "react-chartjs-2";
+import Footer from "../components/Footer";
 import '../assets/styles/components/Statics.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale,LinearScale,BarElement,Title);
@@ -11,8 +12,6 @@ const Statics = () => {
 
   const [datos, setDatos] = useState([0,1,2,3,4]);
   const [nombres, setNombres] = useState(['Copa 1','Copa 2','Copa 3','Copa 4','Copa 5']);
-
-  let BASE_URL = 'https://www.scorebat.com/video-api/v1/';
 
   let data = {
     labels:nombres.slice(0,5),
@@ -54,12 +53,12 @@ const Statics = () => {
     ],
   }
   let dataBar = {
-      labels:nombres.slice(0,5),
+      labels:nombres.slice(0,3),
       datasets: [
         {
           label: 'partidos',
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: datos.slice(0,5),
+          data: datos.slice(0,3),
         }
       ]
   }
@@ -77,6 +76,7 @@ const Statics = () => {
   },
   }
   useEffect(() => {
+    let BASE_URL = 'https://www.scorebat.com/video-api/v1/';
     const getDatosGuardados = async () => {
         try {
           const response = await fetch(`${BASE_URL}`);
@@ -121,6 +121,7 @@ const Statics = () => {
             />
           </div>
         </div>
+      <Footer/>
     </>
   )
 }

@@ -15,7 +15,7 @@ function Team({teams}){
             <Link className="team" key={index} to={`/Video/${team.title}`}>
                <img className="team-image" src={team.thumbnail} alt={`${team.title} `}/>
                <p className="team-name">{team.title}</p>
-              <div dangerouslySetInnerHTML={{__html: team.embed}} />
+              {/* <div dangerouslySetInnerHTML={{__html: team.embed}} /> */}
              </Link>
           )
         })

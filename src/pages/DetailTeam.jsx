@@ -36,7 +36,7 @@ class DetailsTeam extends React.Component {
         let data = this.state.data;
         let cup = this.props.match.params.id;
         // Filtro de data con el parametro de navegacion
-        let result = data.filter(item => item.competition.id == cup)
+        let result = data.filter(item => item.competition.id === cup)
         this.setState({ result: result });
 
     }
